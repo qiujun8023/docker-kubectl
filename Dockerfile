@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 ARG TARGETPLATFORM
-ARG KUBERNETES_RELEASE=v1.21.5
+ARG KUBERNETES_RELEASE
 
 RUN set -ex && \
     wget --no-check-certificate -q https://dl.k8s.io/release/${KUBERNETES_RELEASE}/bin/${TARGETPLATFORM}/kubectl && \
