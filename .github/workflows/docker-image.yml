@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo 'Hi ${{ toJSON(github) }}'
+      - run: echo 'Hi ${{ github.ref_name }}'
       - name: Checkout
         uses: actions/checkout@v2
       - name: Set up QEMU
