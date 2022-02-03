@@ -2,8 +2,6 @@ name: Docker Image CI
 
 on:
   push:
-    branches:
-      - 'master'
     tags:
       - v*.*.*
 
@@ -25,11 +23,11 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         env:
-          KUBERNETES_RELEASE: ${{ env.GITHUB_REF_NAME }}
+          KUBERNETES_RELEASE: ${{ github.ref_name }}
         with:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/kubectl:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/kubectl:${{ env.GITHUB_REF_NAME }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/kubectl:${{ github.ref_name }}
