@@ -33,5 +33,5 @@ jobs:
           build-args: |
             KUBERNETES_RELEASE=${{ steps.get-latest-version.outputs.LATEST_KUBERNETES_VERSION }}
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/kubectl:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/kubectl:${{ steps.get-latest-version.outputs.LATEST_KUBERNETES_VERSION }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/kubectl:latest
